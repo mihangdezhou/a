@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>华药电商--专业的医药B2B平台-医药人自己的电商平台</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body style="padding-top:10px;">
+    <div class="header">
+        <a href="" class="logo"></a>
+        <h3 class="payinfo_lr">客服电话：<em>400-928-8181</em></h3>
+    </div>
+    <div class="main">
+        <div class="inner">
+            <div class="banner"></div>
+            <div class="login">
+<!-- ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
+<form id="loginForm" method="POST" action="/login.jhtml" >
+    <h2 class="title">登录</h2>
+    <p class="errortext" name="error"></p>
+    <ul class="login_form">
+        <li>
+            <input class="input_user" type="text" id="username" name="username"  placeholder="用户名/手机号" value="" maxlength="25" />
+        </li>
+        <li>
+            <input class="input_pwd hid-ms-reveal" type="password" id="password" name="password" maxlength="20"/>
+            <input class="input_pwd" type="text" id="fake_pass" name="fake_pass" value="密码" maxlength="20" style="display:none;" />
+        </li>
+        <li>
+            <input class="input_checkbox" name="rememberMe" type="checkbox" />
+            <label >自动登录</label>
+            <a href="/forgpwd/toforgpwd.jhtml" class="forgot_pwd">忘记密码?</a>
+        </li>
+        
+        <li>
+            <input name="captcha" id="m_captcha" type="text" class="input_yzm" maxlength="6" placeholder="验证码" />
+            <span class="img" name="img">
+                <img src="/kaptcha/kaptcha" id="img_captcha" alt="验证码" onclick="javascript:refreshCaptcha('');"/>
+            </span>
+            <a class="yz_link" onclick="javascript:refreshCaptcha('');" href="javascript:void(0);">换张图片?</a>
+        </li>
+        
+        <li>
+            <input class="button" type="button" id="loginBtn" value="登录"  />
+        </li>
+    </ul>
+    <p class="text">
+        还不是会员？<a href="/register/toRegister.jhtml">免费注册</a>
+    </p>
+</form>
+
+<!-- ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
+            </div>
+        </div>
+    </div>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class="footer">
+        <div class="margin">
+            <div class="txt">
+                <p>
+                    <a href="/helper/index.jhtml?titleId=-7">关于我们</a>&emsp;|&emsp;<a href="/helper/index.jhtml?titleId=-5">法律声明</a>&emsp;|&emsp;<a href="/helper/index.jhtml?titleId=-3">服务条款</a>&emsp;|&emsp;<a href="/helper/index.jhtml?titleId=17">帮助中心</a>&emsp;|&emsp;<a href="/helper/index.jhtml?titleId=-1">政府监管</a>&emsp;|&emsp;<a href="javascript:void(0);" id="cooperation">友情链接</a>
+                </p>
+                <p><a href="/qualificationa.jhtml" style="color:#9f9f9f;">互联网药品交易服务资格证： 国A20150008</a> | <a href="http://www.cmcmall.com.cn/qualification.jhtml" style="color:#9f9f9f;">互联网药品信息服务资格证书号：（苏）-经营性-2015-0003</a> | <a href="/business.jhtml" style="color:#9f9f9f;">营业执照</a></p>
+                <p>
+                    <a href="http://www.miitbeian.gov.cn" target="_blank" style="color:#9f9f9f;text-decoration:none;">苏ICP备15033129号-1&nbsp;|&nbsp;</a>
+                    <a href="http://www.miitbeian.gov.cn" target="_blank" style="color:#9f9f9f;text-decoration:none;">经营许可证编号：合字B2-20160001&nbsp;|&nbsp;</a>
+                    Copyright &copy; 2015-2018  泰州中国医药城华药电子商务股份有限公司  版权所有</p>
+                <p>
+                    投诉举报电话：12331&nbsp;|&nbsp;客户服务邮箱：<a href="mailto:service01@cmcmall.com.cn">service01@cmcmall.com.cn</a>
+                </p>
+            </div>
+            <div class="pic">
+                <ul>
+                    <li><a href="http://www.315online.com"><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/index/i_footer1.png" alt="网上交易保障中心"  /></a></li>
+                    <li><a href="http://www.12377.cn"><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/index/i_footer2.png" alt="不良信息举报中心"/></a></li>
+                    <li><a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/index/i_footer3.png" alt="经营性网站备案信息"/></a></li>
+                    <li><a href="http://www.cyberpolice.cn/wfjb/" title="网络110报警服务"><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/index/i_footer4.png" alt="网络110报警服务"/></a></li>
+                    <li><a id="gswj" title="工商网监"><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/gswj.jpg"  alt="工商网监" style="border: 1px solid silver;"/></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</body>
+</html>

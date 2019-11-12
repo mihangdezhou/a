@@ -1,0 +1,201 @@
+body {
+	color: #000;
+	background:#fff;
+	font: 12px/100% "Microsoft Yahei";
+}
+*{
+	padding:0px;
+	margin:0px;
+	font-weight:normal;
+}
+ul,li,ol{list-style:none;}
+.header {
+    margin: 0 auto;
+    width: 1000px;
+    height: 90px;
+}
+.header .logo {
+    float: left;
+    margin: 13px 0 0;
+    width: 347px;
+    height: 55px;
+    background: url(../login.images/logo.png) 0 0 no-repeat;}
+.header .payinfo_lr {
+    float: right;
+    padding: 0 0 0 40px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #666666;
+    background: url(../login.images/iphone.jpg) left center no-repeat;
+    margin-top: 20px;
+}
+.header .payinfo_lr em {
+    font: bold 24px/24px "Microsoft Yahei";
+    color: #339966;
+}
+.main {
+    min-width: 1000px;
+    height: 450px;
+    background: #38a980 url(../login.images/bg.jpg) center 0 no-repeat;
+}
+.main .inner {
+    min-width: 1000px;
+    margin: 0 auto;
+    width: 1000px;
+    height: 450px;
+}
+.main .inner .banner {
+    float: left;
+    margin: 20px 0 0;
+    width: 466px;
+    height: 409px;
+    background: url(../login.images/banner.png) 0 0 no-repeat;
+}
+.main .inner .login {
+    float: right;
+    margin: 42px 0 0;
+    width: 370px;
+    height: 365px;
+    border: 1px solid #339967;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.footer{min-width:1190px;text-align:center;background:#f0f0f0;padding:30px 0px;}
+.footer a{color: #858585;text-decoration: none;}
+.footer p{line-height:30px;color:#888;}
+.footer .pic{padding:20px 0px;}
+.footer .pic li{margin:0px 4px;display:inline-block;}
+
+
+.main .inner .login .title{
+	margin:32px 32px 0;
+	height:25px;
+	line-height:25px;
+	font-size:18px;
+	color:#339967;
+}
+.main .inner .login .errortext{
+	height:20px;
+	line-height:20px;
+	margin:10px 32px;
+	color:#F00;
+	font-size:14px;
+}
+.main .inner .login .login_form{
+	margin:0 32px;
+	height:200px;
+}
+.main .inner .login .login_form li{
+	float:left;
+	*float:none;
+	padding:0 0 15px;
+	width:100%;
+}
+.main .inner .login .login_form li input.input_user{
+	float:left;
+	padding:0 10px 0 40px;
+	width:255px;
+	height:35px;
+	line-height:35px;
+	border:1px solid #339967;
+	border-radius:3px;
+	background:url(../images/icon_user.png) 14px center no-repeat;
+	_background:url(../images/icon_user.gif) 14px center no-repeat;
+	font-size:14px;
+	/*color:#999;*/
+}
+.main .inner .login .login_form li input.input_pwd{
+	float:left;
+	padding:0 10px 0 40px;
+	width:255px;
+	height:35px;
+	line-height:35px;
+	border:1px solid #339967;
+	border-radius:3px;
+	background:url(../images/icon_password.png) 14px center no-repeat;
+	_background:url(../images/icon_password.gif) 14px center no-repeat;
+	font-size:14px;
+	color:#999;
+}.main .inner .login .login_form li input.hid-ms-reveal{
+	color:#000;
+}
+.main .inner .login .login_form li input.input_checkbox{
+	float:left;
+	margin:3px 0 0;
+	width:14px;
+	height:14px;
+}
+.main .inner .login .login_form li input.input_yzm{
+	float:left;
+	padding:0 10px 0 40px;
+	width:100px;
+	height:35px;
+	line-height:35px;
+	border:1px solid #339967;
+	border-radius:3px;
+	background:url(../images/icon_code.png) 14px center no-repeat;
+	_background:url(../images/icon_code.gif) 14px center no-repeat;
+	font-size:14px;
+	color:#999;
+}
+.main .inner .login .login_form li .img{
+	float:left;
+	width:80px;
+	padding:0 0 0 5px;
+}
+.main .inner .login .login_form li .img img{
+	float:left;
+	width:80px;
+	height:37px;
+}
+.main .inner .login .login_form li .yz_link{
+	margin:0 0 0 5px;
+	float:left;
+	width:63px;
+	height:35px;
+	line-height:35px;
+	color:#f60;
+	font-size:14px;
+	text-decoration:none;
+}
+.main .inner .login .login_form li .yz_link:hover{text-decoration:underline;}
+.main .inner .login .login_form li label{
+	float:left;
+	padding-left:5px;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	color:#339967;
+}
+.main .inner .login .login_form li .forgot_pwd{
+	float:right;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	color:#339967;
+	text-decoration:none;
+}
+.main .inner .login .login_form li input.button{
+	float:left;
+	width:305px;
+	height:37px;
+	line-height:37px;
+	background-color:#fe8f2d;
+	border:none;
+	border-radius:3px;
+	font-size:18px;
+	color:#fff;
+    cursor: pointer; 
+}
+.main .inner .login .text{
+	margin:30px 32px 0;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	color:#339967;
+}
+.main .inner .login .text a{
+	color:#339967;
+	text-decoration:none;
+}
