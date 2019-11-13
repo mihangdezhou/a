@@ -264,7 +264,7 @@ function skr(data){
     for(var i=0;i<data.length;i++){
         str += `
                 <dl>
-                    <div class="dlbox">
+                    <div class="dlbox" mihang="${data[i].id}">
                         <dt><img src="${data[i].img}" alt=""></dt>
                         <dd>
                             <h4>${data[i].name}</h4>
@@ -286,40 +286,23 @@ function skr(data){
     
 }
 // 从jsoon拿到数据渲染页面结束
-</script>
-<!-- <script>
-$(".dlbox").on("click",".pic",function(){
+// 向localstorage里面存id及id属性值
+console.log(1)
+$(".table").on("click",".dlbox",function(){
 
-var index = $(this).parent().attr("mihang");
-console.log( $(this).parent().attr("mihang"))
-var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
-if(asd.length<1){
-        asd.push({
-            id:index
-        })
-    }else{
-        asd[0].id=index
-    }
-localStorage.setItem("asd",JSON.stringify(asd))
+    var index = $(this).parent().attr("mihang");
+    console.log( $(this).children().attr("mihang"))
+    var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
+    if(asd.length<1){
+            asd.push({
+                id:index
+            })
+        }else{
+            asd[0].id=index
+        }
+    localStorage.setItem("asd",JSON.stringify(asd))
 })
-</script> -->
+
+</script>
+
 </html> 
-<!-- json样式 -->
-<!-- <dl>
-    <div class="dlbox">
-        <dt><img src="../login.images/list1.jpg" alt=""></dt>
-        <dd>
-            <h4>清火栀麦片</h4>
-            <p>包装规格：0.31g*36s</p>
-            <p>生产商：广西恒拓集团仁盛制药有限公司</p>
-            <p>供应商：<a href="">湖南湘众医药有限公司</a></p>
-        </dd>
-        <dd class="dd-two">
-            <p>批准文号：国药准字Z20103024</p>
-            <p>零售价：￥4.20</p>
-            <p>库存：100000盒</p>
-        </dd>
-        <div class="msg"><p>加入购物车</p></div>
-    </div>
-</dl> -->
-<!-- json样式 -->
