@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 异步同步程序进程线程
+    // 程序中：
+    // 同步：按顺序依次执行
+    // alert(1);
+    // alert(2);
+    // alert(3);
+
+    // 异步：同时执行
+    // var a = 10;
+    // setTimeout(()=>{
+    //     a++;
+    // },0)
+    // console.log(a);
+
+    // 程序：一个功能
+    // 进程：一个功能从开始执行到结束执行
+    // 线程：一个功能从开始执行到结束执行期间，所经历的多个分支
+    // 多线程，速度更快，更消耗性能
+
+    // ===========================================
+
+    // js是一个异步的单线程编程语言
+    // 单线程利用异步模拟多线程执行
+
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/practive-ajax/practive.txt";
+    xhr.open("get",url,true);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log(xhr.responseText);
+            document.write(xhr.responseText)
+        }
+    }
+    xhr.send();
+
+</script>
+
+</html>

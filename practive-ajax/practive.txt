@@ -1,0 +1,85 @@
+就是一个练习
+
+增
+INSERT tb_name (name,tel,cj) VALUES('suib','64454','45');
+insert tb_name (name) values('suib');
+
+改
+UPDATE tb_name SET cj=60 WHERE id=1;
+update tb_name set cj=60 where id=1;
+
+查
+SELECT name,tel,cj FROM tb_name;
+select name,tel,jc form tb_name;
+
+删
+DELETE FROM stu WHERE id=1；
+delete from stu where id=1;
+
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost/practive-ajax/practive.txt";
+    xhr.open("get",url,true);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            console.log(xhr.responseText);
+            document.write(xhr.responseText)
+        }
+    }
+    xhr.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+删 查 改 增
+
+
+select name，tel  form stu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

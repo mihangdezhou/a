@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    用户名：<input type="text" id="user"><br>
+    密码：<input type="text" id="pass"><br>
+    <input type="button" value="登录" id="login">
+    <span></span>
+</body>
+<script src="../ajax.js"></script>
+<script>
+
+    function Login(){
+        this.user = document.getElementById("user");
+        this.pass = document.getElementById("pass");
+        this.login = document.getElementById("login");
+        this.span = document.querySelector("span");
+        this.url = "http://localhost/practive/ajax/data/login.php";
+
+        this.init();
+    }
+    Login.prototype.init = function(){
+        
+        var that = this;
+        this.login.onclick = function(){
+            console.log({
+                user:that.user.value,
+                pass:that.pass.value
+            })
+            ajaxGet(that.url,function(res){
+                //3.数据的解析
+                that.res = JSON.parse(res)
+                //2.ajax的回调函数的异步：只要想拿到ajax请求成功的数据，必须在ajax请求成功后，在执行下面的方法
+                that.display();
+            },{
+                user:that.user.value,
+                pass:that.pass.value
+            })
+        }
+    }
+    Login.prototype.display = function(){
+        // console.log(this.res);
+        switch(this.res.statu){
+            case 0:
+                this.span.innerHTML = "欢迎登陆";break;
+            case 1:
+                this.span.innerHTML = this.res.msg;
+                break;
+            case 2:
+                this.span.innerHTML = this.res.msg + "<a href='http://www.baidu.com'></a>";break;            
+        }
+    }
+
+    new Login();
+</script>
+</html>

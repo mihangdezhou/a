@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button> 
+        点我一下
+    </button>
+</body>
+<script>
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("get","http://localhost/practive-ajax/practive.txt",true);
+    // xhr.onreadystatechange = function(){
+    //     if(xhr.readyState == 4 && xhr.status == 200){
+    //         console.log(xhr.responseText);
+    //         document.write(xhr.responseText);
+    //     }
+    // }
+    // xhr.send();
+
+
+    var url = "http://localhost/practive/ajax/data/data.php";
+    var btn = document.getElementsByTagName("button")[0];
+    // console.log(btn.innerHTML);
+    btn.onclick = function(){
+        ajaxGet(url,function(res){
+            console.log(res);
+        },{
+            user:"quhang",
+            pass:"123231"
+        });
+    }
+
+    function ajaxGet(url,cb,data){//data是对象名，可以随意更改
+        
+        var str = "";
+        for(var i in data){
+            str += `${i}=${data[i]}&`;
+        }
+        url = url + "?" + str.slice(0,str.length-1);
+
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url,true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                cb(xhr.responseText)//cb就是callback的缩写，这里是语义化的命名方式
+            }
+        }
+        xhr.send();
+    }
+
+</script>
+
+
+</html>

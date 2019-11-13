@@ -50,7 +50,7 @@
                 </p>
             </div>
             <div class="car">
-                <a href=""></a>
+                <a href="../html/shopCar.html"></a>
                 我的采购单
                 <b>0</b>
             </div>
@@ -63,11 +63,11 @@
             <div class="nav">
                 <ul id="ul">
                     <li class="menudown">
-                        <a href="" class="i i_1">中药</a>
+                        <a href="../html/goods.html" class="i i_1">中药</a>
                         <div class="box i1">
                             <div class="txt">
                                 <dl>
-                                    <dt><a href=""  title='抗生素类药品'>抗生素类药品</a>&emsp;></dt>
+                                    <dt><a href="../html/goods.html"  title='抗生素类药品'>抗生素类药品</a>&emsp;></dt>
                                         <dd>
                                             
                                             <a  href="" title="青霉素类">青霉素类</a>
@@ -203,7 +203,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_2">西药</a>
+                        <a href="../html/goods.html" class="i i_2">西药</a>
                         <div class="box i2">
                             <div class="txt">
                                 <dl>
@@ -288,7 +288,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_3">医疗器械</a>
+                        <a href="../html/goods.html" class="i i_3">医疗器械</a>
                         <div class="box i3">
                             <div class="txt">
                                 <dl>
@@ -322,7 +322,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_4">保健品</a>
+                        <a href="../html/goods.html" class="i i_4">保健品</a>
                         <div class="box i4">
                             <div class="txt">
                                 <dl>
@@ -352,7 +352,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_5">原料药</a>
+                        <a href="../html/goods.html" class="i i_5">原料药</a>
                         <div class="box i5">
                             <div class="txt">
                                 <dl>
@@ -378,7 +378,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_6">化妆品</a>
+                        <a href="../html/goods.html" class="i i_6">化妆品</a>
                         <div class="box i6">
                             <div class="txt">
                                 <dl>
@@ -412,7 +412,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_7">消毒用具</a>
+                        <a href="../html/goods.html" class="i i_7">消毒用具</a>
                         <div class="box i7">
                             <div class="txt">
                                 <dl>
@@ -445,7 +445,7 @@
                         </div>
                     </li>
                     <li class="menudown">
-                        <a href="" class="i i_8">其他</a>
+                        <a href="../html/goods.html" class="i i_8">其他</a>
                         <div class="box i8">
                             <div class="txt">
                                 <dl>
@@ -1026,6 +1026,7 @@ $.ajax({
     dataType:"json",
     success:function(data){
         add(data);
+    console.log(data)
     },
 })
 function add(data){
@@ -1033,8 +1034,8 @@ function add(data){
         var str="";
         for(var i=0;i<data[j].length;i++){
             str += `
-                    <div class="item">
-                        <div class="pic"><a href=""><img src="${data[j][i].img}" alt=""></a></div>
+                    <div class="item" mihang="${data[j][i].id}">
+                        <div class="pic"><a href="../html/details.html"><img src="${data[j][i].img}" alt=""></a></div>
                         <div class="txt">
                             <div class="name"><h3><a href="">${data[j][i].name}</a></h3></div>
                             <div class="info">${data[j][i].tiaojian}</div>
@@ -1049,7 +1050,21 @@ function add(data){
 }
 // 页面渲染结束
 
+$(".item-list").on("click",".pic",function(){
 
+    var index = $(this).parent().attr("mihang");
+    console.log( $(this).parent().attr("mihang"))
+    var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
+    if(asd.length<1){
+            asd.push({
+                id:index
+            })
+        }else{
+            asd[0].id=index
+        }
+    localStorage.setItem("asd",JSON.stringify(asd))
+})
+    // console.log(1)
 
 </script>
 <!-- 数据渲染的原型 -->

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul{width: 300px;background:eee;margin: 0;}
+    li{line-height: 20px;border-bottom: 1px solid #ccc;list-style: none;}
+</style>
+<body>
+    <input type="text" id="txt">
+    <ul id="list"></ul>
+</body>
+<script src="../../ajax.js"></script>
+<script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        //百度搜索下拉菜单数据接口
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        //1.准备事件
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        //2.绑定事件
+        // console.log(this);
+        this.txt.oninput = function(){
+            //3.判断是否为空
+            if(this.value){
+                //4-1不为空，请求数据
+                that.val = this.value;
+                that.load();
+            }else{
+                //4-2,为空，清空数据
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        //5.开启jsonp准备请求跨域数据
+        jsonp(this.url,function(res){
+            //6.请求成功后，解析数据，准备渲染页面
+            that.res = res.s;
+            that.display();
+        },{
+            //5-1,准备发送数据
+            wd:this.val,
+            cb:"bjbkbkj",
+            columnName:"cb"
+        })
+    }
+    Search.prototype.display = function(){
+        //7 解析数据  拼接结构
+        var str = "";
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        //8 填充页面
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script>
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = '';
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:'sodm',
+            columnName:"cb"
+        })
+    }
+    Search.prototype.display = function(){
+        var str = "";
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+     function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su';
+        this.init();
+     }
+     Search.prototype.init = function(){
+         var that = this;
+         this.txt.oninput = function(){
+             if(this.value){
+                that.val = this.value;
+                that.load();
+             }else{
+                 that.list.innerHTML = "";
+             }
+         }
+     }
+     Search.prototype.load = function(){
+         var that = this;
+         jsonp(this.url,function(res){
+            that.res = res.s;
+            console.log(res);
+            that.display();
+         },{
+             wd:this.val,
+             cb:"dhfouaGf",
+             columnName:"cb"
+         })
+     }
+     Search.prototype.display = function(){
+         var str = "";
+         for(var i=0;i<this.res.length;i++){
+             str += `<li>${this.res[i]}</li>`
+         }
+         this.list.innerHTML = str;
+     }
+     new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:"sbdid",
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:"sihc",
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById('txt');
+        this.list = document.getElementById('list');
+        this.url =  "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:'shdio',
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url =  "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = '';
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:'sids',
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i =0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById('txt');
+        this.list = document.getElementById('list');
+        this.url =  "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerMHTML = '';
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:'sfsd',
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById("list");
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            that.display();
+        },{
+            wd:this.val,
+            cb:'sab',
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+<!-- <script>
+    function Search(){
+        this.txt = document.getElementById("txt");
+        this.list = document.getElementById('list');
+        this.url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+        this.init();
+    }
+    Search.prototype.init = function(){
+        var that = this;
+        this.txt.oninput = function(){
+            if(this.value){
+                that.val = this.value;
+                that.load();
+            }else{
+                that.list.innerHTML = "";
+            }
+        }
+    }
+    Search.prototype.load = function(){
+        var that = this;
+        jsonp(this.url,function(res){
+            that.res = res.s;
+            console.log(res);
+            that.display();
+        },{
+            wd:this.val,
+            cb:"siud",
+            columnName:'cb'
+        })
+    }
+    Search.prototype.display = function(){
+        var str = '';
+        for(var i=0;i<this.res.length;i++){
+            str += `<li>${this.res[i]}</li>`
+        }
+        this.list.innerHTML = str;
+    }
+    new Search();
+</script> -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

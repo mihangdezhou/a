@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    当前正在测试jsonp的封装
+</body>
+<script>
+
+    document.onclick = function(){
+        var url = "http://localhost/practive/jsonp/data/json2.php";
+        jsonp(url,function(res){
+            alert(res)
+        },{
+            user:"笑哭",
+            pass:"saxasnxc",
+        })
+    }
+
+    function jsonp(url,callback,data){
+        //解析要发送的数据
+        data = data || {};
+        var str = "";
+        for(var i in data){
+            str += `${i}=${data[i]}&`;
+        }
+        //将数据拼接到url
+        url = url + "?" + str.slice(0,str.length-1);
+
+        //jsonp的功能：1.创建script
+        var script = document.createElement("script");
+        script.src = url;
+        document.body.appendChild(script);
+
+        //jsonp的功能：2.创建准备被资源执行的全局函数
+        window.fn = function(res){
+            callback(res);
+        }
+    }
+
+
+</script>
+</html>
