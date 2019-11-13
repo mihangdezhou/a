@@ -141,8 +141,6 @@
     </div>
     <!--  -->
 
-
-
     <div class="footer">
         <ul class="promise">
             <li>
@@ -249,27 +247,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--  -->
 </body>
 <script src="../outside/jquery.js"></script>
@@ -310,6 +287,22 @@ function skr(data){
 }
 // 从jsoon拿到数据渲染页面结束
 </script>
+<!-- <script>
+$(".dlbox").on("click",".pic",function(){
+
+var index = $(this).parent().attr("mihang");
+console.log( $(this).parent().attr("mihang"))
+var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
+if(asd.length<1){
+        asd.push({
+            id:index
+        })
+    }else{
+        asd[0].id=index
+    }
+localStorage.setItem("asd",JSON.stringify(asd))
+})
+</script> -->
 </html> 
 <!-- json样式 -->
 <!-- <dl>

@@ -14,12 +14,12 @@
         <div class="top">
             <div class="top_inner">
                 <p class="links">
-                        <a href="http://www.cmcmall.com.cn/center/message/info.jhtml?loginAddr=home">采购商登录</a> | 
-                        <a href="/register/toRegister.jhtml">注册</a> | 
-                        <a href="http://www.cmcmall.com.cn/center/message/message.jhtml">消息中心</a>|
-                        <a href="http://manager.cmcmall.com.cn/login.jhtml">政府监管</a>| 
-                        <a href="http://www.cmcmall.cn">政策法规及行业公告</a>| 
-                        <a href="http://www.cmcmall.com.cn/center/complaintManage/list.jhtml">举报投诉</a>
+                        <a href="../html/login.html">采购商登录</a> | 
+                        <a href="../html/post.html">注册</a> | 
+                        <a href="">消息中心</a>|
+                        <a href="">政府监管</a>| 
+                        <a href="">政策法规及行业公告</a>| 
+                        <a href="">举报投诉</a>
                 </p>
             </div>
         </div>
@@ -80,47 +80,6 @@
             </div>
             <div class="change_right">
                 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                <!-- 
-                    <h1>棉签</h1>
-                <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
-                <ul class="change_right_line">
-                    <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
-                    <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
-                        <i class="ib_bubble"><img src="../login.images/chat.png"></i>
-                        <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
-                        <li>
-                            <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-                            <em>-</em>
-                    </li>
-                    <li><span>可否拆零：</span><em>可拆零</em></li>
-                    <li>
-                        <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-                        <em>-</em>
-                    </li>
-                    <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
-                    <li><span>起送金额：</span><em>400元</em></li>
-                </ul>
-                <div class="change_right_ul">
-                    <ul>
-                        <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
-                        <li>
-                            <span>购买数量：</span>
-                            <div class="change_right_input input">
-                                <input type="text" value="-" class="c_right_input"/>
-                                <a href="" class=" c_right_input_bottom1"></a>
-                                <a href="" class=" c_right_input_bottom2"></a>
-                            </div>
-                            <span class="change_rightp">盒</span>
-                        </li>
-                        <li>
-                            <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
-                            <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
-                        </li>
-                    </ul>
-                </div>
-                <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
-                <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
-            -->
             </div>
             <!--                json渲染结束 -->
         </div>
@@ -377,107 +336,51 @@ function add(data){
             if(data[i][j].id == json[0].id){
                 console.log(data[i][j].id)
                 str += `
-                            <h1>${data[i][j].name}</h1>
-                            <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
-                            <ul class="change_right_line">
-                                <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
-                                <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
-                                    <i class="ib_bubble"><img src="../login.images/chat.png"></i>
-                                    <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
-                                    <li>
-                                        <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-                                        <em>-</em>
-                                </li>
-                                <li><span>可否拆零：</span><em>可拆零</em></li>
+                        <h1>${data[i][j].name}</h1>
+                        <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
+                        <ul class="change_right_line">
+                            <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
+                            <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
+                                <i class="ib_bubble"><img src="../login.images/chat.png"></i>
+                                <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
                                 <li>
-                                    <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
+                                    <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
                                     <em>-</em>
+                            </li>
+                            <li><span>可否拆零：</span><em>可拆零</em></li>
+                            <li>
+                                <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
+                                <em>-</em>
+                            </li>
+                            <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
+                            <li><span>起送金额：</span><em>400元</em></li>
+                        </ul>
+                        <div class="change_right_ul">
+                            <ul>
+                                <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
+                                <li>
+                                    <span>购买数量：</span>
+                                    <div class="change_right_input input">
+                                        <input type="text" value="-" class="c_right_input"/>
+                                        <a href="" class=" c_right_input_bottom1"></a>
+                                        <a href="" class=" c_right_input_bottom2"></a>
+                                    </div>
+                                    <span class="change_rightp">盒</span>
                                 </li>
-                                <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
-                                <li><span>起送金额：</span><em>400元</em></li>
+                                <li>
+                                    <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
+                                    <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
+                                </li>
                             </ul>
-                            <div class="change_right_ul">
-                                <ul>
-                                    <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
-                                    <li>
-                                        <span>购买数量：</span>
-                                        <div class="change_right_input input">
-                                            <input type="text" value="-" class="c_right_input"/>
-                                            <a href="" class=" c_right_input_bottom1"></a>
-                                            <a href="" class=" c_right_input_bottom2"></a>
-                                        </div>
-                                        <span class="change_rightp">盒</span>
-                                    </li>
-                                    <li>
-                                        <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
-                                        <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
-                            <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
-                            
+                        </div>
+                        <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
+                        <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
                         `
+                    }
+                }
             }
+            $(".change_right").append(str);
         }
-    }
-    $(".change_right").append(str);
-}
-    // for(var s=0;s<json.length;s++){
-    //     var str_id = json[s].id;
-    //     for(var j=0;j<data.length;j++){
-    //             console.log(data[j]);
-    //         for(var i=0;i<data[j].length;i++){
-                
-    //             if(str_id = data[j][i].id){
-    //                 str += `
-    //                         <h1>${data[j][i].name}</h1>
-    //                         <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
-    //                         <ul class="change_right_line">
-    //                             <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
-    //                             <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
-    //                                 <i class="ib_bubble"><img src="../login.images/chat.png"></i>
-    //                                 <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
-    //                                 <li>
-    //                                     <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-    //                                     <em>-</em>
-    //                             </li>
-    //                             <li><span>可否拆零：</span><em>可拆零</em></li>
-    //                             <li>
-    //                                 <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-    //                                 <em>-</em>
-    //                             </li>
-    //                             <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
-    //                             <li><span>起送金额：</span><em>400元</em></li>
-    //                         </ul>
-    //                         <div class="change_right_ul">
-    //                             <ul>
-    //                                 <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
-    //                                 <li>
-    //                                     <span>购买数量：</span>
-    //                                     <div class="change_right_input input">
-    //                                         <input type="text" value="-" class="c_right_input"/>
-    //                                         <a href="" class=" c_right_input_bottom1"></a>
-    //                                         <a href="" class=" c_right_input_bottom2"></a>
-    //                                     </div>
-    //                                     <span class="change_rightp">盒</span>
-    //                                 </li>
-    //                                 <li>
-    //                                     <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
-    //                                     <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
-    //                                 </li>
-    //                             </ul>
-    //                         </div>
-    //                         <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
-    //                         <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
-                            
-    //                     `
-    //                 }
-    //             }
-    //         $(".change_right").eq(j).append(str)
-    //     }
-    // }
-// }
 
 </script>
 </html>
