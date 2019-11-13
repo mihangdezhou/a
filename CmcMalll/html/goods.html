@@ -14,12 +14,12 @@
         <div class="top">
             <div class="top_inner">
                 <p class="links">
-                        <a href="http://www.cmcmall.com.cn/center/message/info.jhtml?loginAddr=home">采购商登录</a> | 
-                        <a href="/register/toRegister.jhtml">注册</a> | 
-                        <a href="http://www.cmcmall.com.cn/center/message/message.jhtml">消息中心</a>|
-                        <a href="http://manager.cmcmall.com.cn/login.jhtml">政府监管</a>| 
-                        <a href="http://www.cmcmall.cn">政策法规及行业公告</a>| 
-                        <a href="http://www.cmcmall.com.cn/center/complaintManage/list.jhtml">举报投诉</a>
+                        <a href="../html/login.html">采购商登录</a> | 
+                        <a href="../html/post.html">注册</a> | 
+                        <a href="">消息中心</a>|
+                        <a href="">政府监管</a>| 
+                        <a href="">政策法规及行业公告</a>| 
+                        <a href="">举报投诉</a>
                 </p>
             </div>
         </div>
@@ -264,21 +264,23 @@ function skr(data){
     for(var i=0;i<data.length;i++){
         str += `
                 <dl>
-                    <div class="dlbox" mihang="${data[i].id}">
-                        <dt><img src="${data[i].img}" alt=""></dt>
-                        <dd>
-                            <h4>${data[i].name}</h4>
-                            <p>${data[i].norms}</p>
-                            <p>${data[i].producer}</p>
-                            <p>${data[i].supplier}<a href="">${data[i].supplierName}</a></p>
-                        </dd>
-                        <dd class="dd-two">
-                            <p>${data[i].number}</p>
-                            <p>${data[i].price}</p>
-                            <p>${data[i].stock}</p>
-                        </dd>
-                        <div class="msg"><p>加入购物车</p></div>
-                    </div>
+                    <a href="../html/details.html">
+                        <div class="dlbox" mihang="${data[i].id}">
+                            <dt><img src="${data[i].img}" alt=""></dt>
+                            <dd>
+                                <h4>${data[i].name}</h4>
+                                <p>${data[i].norms}</p>
+                                <p>${data[i].producer}</p>
+                                <p>${data[i].supplier}<a href="">${data[i].supplierName}</a></p>
+                            </dd>
+                            <dd class="dd-two">
+                                <p>${data[i].number}</p>
+                                <p>${data[i].price}</p>
+                                <p>${data[i].stock}</p>
+                            </dd>
+                            <div class="msg"><p>加入购物车</p></div>
+                        </div>
+                    </a>
                 </dl>
             `
         }
@@ -287,11 +289,8 @@ function skr(data){
 }
 // 从jsoon拿到数据渲染页面结束
 // 向localstorage里面存id及id属性值
-console.log(1)
 $(".table").on("click",".dlbox",function(){
-
-    var index = $(this).parent().attr("mihang");
-    console.log( $(this).children().attr("mihang"))
+    var index = $(this).attr("mihang");
     var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
     if(asd.length<1){
             asd.push({
