@@ -303,89 +303,8 @@
     // console.log($(".floor_ul").children("li"))
     // console.log($(".floor"))
     //广告栏目结束 
-// 从主页拿到的数据
-$.ajax({
-    url:"http://localhost/CmcMalll/outside/index.json",
-    success:function(data){
-        add(data)
-    },
-})
-function add(data){
-    var json = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
-    var str = "";
-    for(var i=0;i<data.length;i++){
-        for(var j=0;j<data[i].length;j++){
-            if(data[i][j].id == json[0].id){
-                console.log(data[i][j].id)
-                str += `
-                        <div class="change_left">
-                            <div class="img">
-                                <img src="${data[i][j].img}" alt="">
-                            </div>
-                            <div class="advert">
-                                <img src="../images/index_tendering.jpg" alt="">
-                            </div>
-                            <div class="tool">
-                                <div class="collect"><a href=""><i>&nbsp;</i>收藏</a></div>
-                                <div class="share">
-                                    <a href=""></a>
-                                    <a href=""></a>
-                                    <a href=""></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="change_right">
-                            <h1>${data[i][j].name}</h1>
-                            <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
-                            <ul class="change_right_line">
-                                <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
-                                <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
-                                    <i class="ib_bubble"><img src="../login.images/chat.png"></i>
-                                    <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
-                                    <li>
-                                        <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-                                        <em>-</em>
-                                </li>
-                                <li><span>可否拆零：</span><em>可拆零</em></li>
-                                <li>
-                                    <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
-                                    <em>-</em>
-                                </li>
-                                <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
-                                <li><span>起送金额：</span><em>400元</em></li>
-                            </ul>
-                            <div class="change_right_ul">
-                                <ul>
-                                    <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
-                                    <li>
-                                        <span>购买数量：</span>
-                                        <div class="change_right_input input">
-                                            <input type="text" value="-" class="c_right_input"/>
-                                            <a href="" class=" c_right_input_bottom1"></a>
-                                            <a href="" class=" c_right_input_bottom2"></a>
-                                        </div>
-                                        <span class="change_rightp">盒</span>
-                                    </li>
-                                    <li>
-                                        <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
-                                        <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
-                            <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
-                        </div>
-                        `
-                    }
-                }
-            }
-            $(".change").append(str);
-        }
 
-        // 从主页拿到的数据结束
-</script>
-<script>
-    // 从列表里面拿到的数据
+// 从列表里面拿到的数据
 $.ajax({
     url:"http://localhost/CmcMalll/outside/goods.json",
     success:function(data){
@@ -400,9 +319,19 @@ function add(data){
                 console.log(data[i].id)
                 str += `
                         <div class="change_left">
+
                             <div class="img">
-                                <img src="${data[i].img}" alt="">
+                                <div class="small_pic">
+                                    <span class="mark"></span>
+                                    <span class="float_layer"></span>
+                                    <img src="${data[i].img}"/>
+                                </div>
+                                <div class="big_pic">
+                                    <img src="${data[i].img}"/>
+                                </div>
                             </div>
+
+                            
                             <div class="advert">
                                 <img src="../images/index_tendering.jpg" alt="">
                             </div>
@@ -462,5 +391,145 @@ function add(data){
             $(".change").append(str);
         }
         // 从列表里面拿到的数据结束
+
+
+
+// 从主页拿到的数据
+// $.ajax({
+//     url:"http://localhost/CmcMalll/outside/index.json",
+//     success:function(data){
+//         add(data)
+//     },
+// })
+// function add(data){
+//     var json = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
+//     var str = "";
+//     for(var i=0;i<data.length;i++){
+//         for(var j=0;j<data[i].length;j++){
+//             if(data[i][j].id == json[0].id){
+//                 console.log(data[i][j].id)
+//                 str += `
+//                         <div class="change_left">
+//                             <div class="img">
+//                                 <img src="${data[i][j].img}" alt="">
+//                             </div>
+//                             <div class="advert">
+//                                 <img src="../images/index_tendering.jpg" alt="">
+//                             </div>
+//                             <div class="tool">
+//                                 <div class="collect"><a href=""><i>&nbsp;</i>收藏</a></div>
+//                                 <div class="share">
+//                                     <a href=""></a>
+//                                     <a href=""></a>
+//                                     <a href=""></a>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                         <div class="change_right">
+//                             <h1>${data[i][j].name}</h1>
+//                             <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
+//                             <ul class="change_right_line">
+//                                 <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
+//                                 <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
+//                                     <i class="ib_bubble"><img src="../login.images/chat.png"></i>
+//                                     <li><span>生产厂家：</span><em>济宁市丰泰医疗器械有限公司</em></li>
+//                                     <li>
+//                                         <span>中&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
+//                                         <em>-</em>
+//                                 </li>
+//                                 <li><span>可否拆零：</span><em>可拆零</em></li>
+//                                 <li>
+//                                     <span>大&nbsp;&nbsp;包&nbsp;&nbsp;装：</span>
+//                                     <em>-</em>
+//                                 </li>
+//                                 <li><span>批准文号：</span><em>鲁宁械备20170038号</em></li>
+//                                 <li><span>起送金额：</span><em>400元</em></li>
+//                             </ul>
+//                             <div class="change_right_ul">
+//                                 <ul>
+//                                     <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
+//                                     <li>
+//                                         <span>购买数量：</span>
+//                                         <div class="change_right_input input">
+//                                             <input type="text" value="-" class="c_right_input"/>
+//                                             <a href="" class=" c_right_input_bottom1"></a>
+//                                             <a href="" class=" c_right_input_bottom2"></a>
+//                                         </div>
+//                                         <span class="change_rightp">盒</span>
+//                                     </li>
+//                                     <li>
+//                                         <span>采&nbsp;&nbsp;购&nbsp;&nbsp;价：</span> 
+//                                         <div><em class="price"><a class="c_dlkj" href="">认证可见</a></em></div>
+//                                     </li>
+//                                 </ul>
+//                             </div>
+//                             <span class="c_big_bonttem1"><input type="button" value="立即购买" /></span>
+//                             <span class="c_big_bonttem2"><input type="button" value="加入采购计划" /></span> 
+//                         </div>
+//                         `
+//                     }
+//                 }
+//             }
+//             $(".change").append(str);
+//         }
+
+//         // 从主页拿到的数据结束
+</script>
+<script type="text/javascript">
+    window.onload = function(){
+        //1. 获取大盒子
+        let oBigBox = DQ('.img');
+        //2. 获取小图所在的盒子
+        let oSmallPic = DQ('.small_pic');
+        //3. 获取遮罩
+        let oMark = DQ('.mark');
+        //4. 获取滑块
+        let oFloat = DQ('.float_layer');
+        //5. 大图所在盒子
+        let oBigPic = DQ('.big_pic');
+        //6. 大图
+        let oBigImg = DQ('.big_pic img');
+        
+        //7.给遮罩添加移入事件
+        oMark.onmouseenter = function(){
+            oFloat.style.display = 'block';
+            oBigPic.style.display = 'block';
+        }
+        //8.给遮罩添加移出事件
+        oMark.onmouseleave = function(){
+            oFloat.style.display = 'none';
+            oBigPic.style.display = 'none';
+        }
+        //9. 给遮罩添加移动事件
+        oMark.onmousemove = function(evt){
+            let e = evt || window.event;
+            let left = e.pageX - oBigBox.offsetLeft - oSmallPic.offsetLeft - oFloat.offsetWidth / 2;
+            let top = e.pageY - oBigBox.offsetTop - oSmallPic.offsetTop - oFloat.offsetHeight / 2;
+            
+            //边界
+            if(left <= 0){
+                left = 0;
+            }else if(left >= this.offsetWidth - oFloat.offsetWidth){
+                left = this.offsetWidth - oFloat.offsetWidth;
+            }
+            if(top <= 0){
+                top = 0;
+            }else if(top >= this.offsetHeight - oFloat.offsetHeight){
+                top = this.offsetHeight - oFloat.offsetHeight;
+            }
+            oFloat.style.left = left + 'px';
+            oFloat.style.top = top + 'px';
+            
+            //求滑块在小图上的移动比例
+            let pX = left / (this.offsetWidth - oFloat.offsetWidth);
+            let pY = top / (this.offsetHeight - oFloat.offsetHeight);
+            //设置大图移动
+            oBigImg.style.left = - pX * (oBigImg.offsetWidth - oBigPic.offsetWidth) + 'px';
+            oBigImg.style.top = - pY * (oBigImg.offsetHeight - oBigPic.offsetHeight) + 'px';
+        }
+    }
+    function DQ(select){
+        return document.querySelector(select);
+    }
 </script>
 </html>

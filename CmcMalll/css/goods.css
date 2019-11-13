@@ -28,8 +28,9 @@ input, textarea, select {resize: none;background: #fff;color: #545454;}
 /* json渲染页面的部分 */
 .result .tabcnt .table dl{margin-top:10px;}
 .result .tabcnt .table dl .dlbox{padding:10px;border: solid 1px #c1dbc2;height: 100px;width: 965px;}
-.result .tabcnt .table dl dt{float: left;margin-right: 15px;width: 100px;height: 100px;}
-.result .tabcnt .table dl dt img{display: block;width: 100%;height: 100%;border: solid 1px #f2f2f2;}
+.result .tabcnt .table dl dt{float: left;margin-right: 15px;width: 100px;height: 100px;overflow: hidden;}
+.result .tabcnt .table dl dt img{display: block;width: 100%;height: 100%;border: solid 1px #f2f2f2;transition:0.5s;}
+.result .tabcnt .table dl dt img:hover{transform: scale(1.2);}
 .result .tabcnt .table dl dd{float: left;width: 240px;padding-left: 1px;}
 .result .tabcnt .table dl dd h4{padding: 15px 0 15px 0;font-size: 16px;color: #359869;font-weight: bold;line-height: 10px;}
 .result .tabcnt .table dl dd p{line-height: 20px;}
