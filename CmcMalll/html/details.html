@@ -316,7 +316,7 @@ function add(data){
     var str = "";
     for(var i=0;i<data.length;i++){
             if(data[i].id == json[0].id){
-                console.log(data[i].id)
+                // console.log(data[i].id)
                 str += `
                         <div class="change_left">
 
@@ -390,7 +390,7 @@ function add(data){
             }
             $(".change").append(str);
         }
-        // 从列表里面拿到的数据结束
+// 从列表里面拿到的数据结束
 
 
 
@@ -475,7 +475,7 @@ function add(data){
 
 //         // 从主页拿到的数据结束
 </script>
-<script type="text/javascript">
+<script>
     window.onload = function(){
         //1. 获取大盒子
         let oBigBox = DQ('.img');
@@ -491,6 +491,7 @@ function add(data){
         let oBigImg = DQ('.big_pic img');
         
         //7.给遮罩添加移入事件
+        console.log(oMark);//这里span标签有的时候后加载不出来所以有的时候后放大境就无法使用，需要写一个if来解决
         oMark.onmouseenter = function(){
             oFloat.style.display = 'block';
             oBigPic.style.display = 'block';
