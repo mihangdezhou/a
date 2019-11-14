@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../css/goods.css">
 </head>
 <body>
+        <!-- 跳转到购物车页面的渠道 -->
+    <div id="shoppingCar">
+        <a href="../html/shopCar.html"><span>购物车</span><img src="../images/i_cart.png" alt=""></a>
+    </div>
+    <!-- 跳转到购物车页面的渠道结束 -->
     <div class="header">
         <!--顶部开始-->
         <div class="top">
@@ -114,7 +119,7 @@
                 </dl>
             </div>
         </div>
-        <div class="result" style="height: 2640px;">
+        <div class="result" style="height: 2640px;overflow: hidden;">   <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
             <div class="tabcnt">
                 <div class="table">
                    <!-- 用ajax填写数据 -->
@@ -237,13 +242,6 @@
                 Copyright &copy; 2015-2018  泰州中国医药城华药电子商务股份有限公司  版权所有
             </p>
                 <p class="admission">投诉举报电话：12331&nbsp;|&nbsp;客户服务邮箱：service01@cmcmall.com.cn</p>
-            <div class="certs">
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_1.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_2.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_3.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_4.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/gswj.jpg"/></a>
-            </div>
         </div>
     </div>
 
@@ -275,10 +273,10 @@ function skr(data){
                             </dd>
                             <dd class="dd-two">
                                 <p>${data[i].number}</p>
-                                <p>${data[i].price}</p>
+                                <p>零售价：￥${data[i].price}</p>
                                 <p>${data[i].stock}</p>
                             </dd>
-                            <div class="msg"><p>加入购物车</p></div>
+                            <div class="msg" dezhou="${data[i].id}"><p>加入购物车</p></div>
                         </div>
                     </a>
                 </dl>
@@ -302,6 +300,52 @@ $(".table").on("click",".dlbox",function(){
     localStorage.setItem("asd",JSON.stringify(asd))
 })
 
+// 购物车
+
+    $(".table").on("click",".msg",function(){
+        var key = $(this).attr("dezhou");
+        console.log(key)
+        var inID = localStorage.getItem("inID")? JSON.parse(localStorage.getItem("inID")) : [];
+        // 判断有无商品id
+        if(inID.length<1){
+            // 添加id
+            inID.push({
+                id:$(this).attr("dezhou"),
+                // 定义一个num，用来渲染购物车商品数量
+                num: 1
+            })
+        // 有就循环，拿数据
+        }else{
+            // 拿到id的数量
+            for(var i=0;i<inID.length;i++){
+                // 判断点击的id是否等于localstorage里面的id
+                if($(this).attr("dezhou") == inID[i].id){
+                    // 判断有没有num
+                    if(inID[i].num){
+                        // 有就加1
+                        inID[i].num++
+                    }else{
+                        // 没有就给1
+                        inID[i].num = 1
+                    }
+                    // 不是就打断
+                    break
+                }
+            }
+            // 如果
+            if(i == inID.length){
+                inID.push({
+                    id:$(this).attr("dezhou"),
+                    num: 1
+                })
+            }
+        }
+        alert("加入购物车成功")
+        // 存数据
+        localStorage.setItem("inID",JSON.stringify(inID))
+    })
+
+// 购物车结束
 </script>
 
 </html> 

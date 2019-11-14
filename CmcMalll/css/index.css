@@ -4,6 +4,14 @@ body{background: #f0f0f0;font-family: Arial,Microsoft Yahei,微软雅黑 !import
 .margin{width: 1190px;clear:both;margin: 0 auto;}
 a{ text-decoration:none;color:#666;}
 a:hover{color:#333;}
+
+/* 跳转到购物车标签的样式 */
+#shoppingCar{position:fixed;height:32px;width: 32px;background-color: #17c390;bottom:395px;left: 0;overflow: hidden;z-index:15;}
+#shoppingCar:hover{background:#0bab7b;overflow: visible;}
+#shoppingCar a{color: #fff;}
+#shoppingCar a span{position: absolute;left: 32px;height:32px;width:50px;text-align:center;line-height:32px;background:#0bab7b;}
+/* 跳转到购物车标签的样式结束 */
+
 /* 项目开始 */
 .site-nav{height:36px; line-height:36px;}
 .site-nav .right{float:right;}
@@ -232,8 +240,6 @@ header .search{width: 710px;padding-top:30px;float: left;font-size: 12px;}
 /* footer的最后一部分 */
 .footer{min-width:1190px;text-align:center;background:#f0f0f0;padding:30px 0px;}
 .footer p{line-height:30px;color:#888;}
-.footer .pic{padding:20px 0px;}
-.footer .pic li{margin:0px 4px;display:inline-block;}
 /* css样式暂时结束 */
 
 

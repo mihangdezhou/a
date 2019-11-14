@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="../css/details.css">
 </head>
 <body>
+        <!-- 跳转到购物车页面的渠道 -->
+    <div id="shoppingCar">
+        <a href="../html/shopCar.html"><span>购物车</span><img src="../images/i_cart.png" alt=""></a>
+    </div>
+    <!-- 跳转到购物车页面的渠道结束 -->
     <div class="header">
         <!--顶部开始-->
         <div class="top">
@@ -282,13 +287,7 @@
                 Copyright &copy; 2015-2018  泰州中国医药城华药电子商务股份有限公司  版权所有
             </p>
                 <p class="admission">投诉举报电话：12331&nbsp;|&nbsp;客户服务邮箱：service01@cmcmall.com.cn</p>
-            <div class="certs">
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_1.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_2.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_3.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/styles/images/bottom_pic_4.jpg"/></a>
-                <a href=""><img src="http://staticcdn2b.cmcmall.cn/store/resources/static/images/gswj.jpg"/></a>
-            </div>
+
         </div>
     </div>
 </body>
@@ -346,7 +345,7 @@ function add(data){
                         </div>
                         <div class="change_right">
                             <h1>${data[i].name}</h1>
-                            <p style="font-size:15px; color:#F00;">精装棉签秒杀0.1元/包（限购60包）</p>
+                            <p style="font-size:15px; color:#F00;">${data[i].details}</p>
                             <ul class="change_right_line">
                                 <li><span>包装规格：</span><em>10cm*50支/包*200包/件</em></li>
                                 <li><span>供&nbsp;&nbsp;应&nbsp;&nbsp;商：</span><a href="" class="c_gys" >信阳市聚发医疗用品有限公司</a>
@@ -366,7 +365,7 @@ function add(data){
                             </ul>
                             <div class="change_right_ul">
                                 <ul>
-                                    <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥4.00</span> （零售价仅供参考）</li>
+                                    <li><span>零&nbsp;&nbsp;售&nbsp;&nbsp;价：</span><span class="change_right_txt">￥${data[i].price}</span> （零售价仅供参考）</li>
                                     <li>
                                         <span>购买数量：</span>
                                         <div class="change_right_input input">
