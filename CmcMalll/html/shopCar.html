@@ -72,7 +72,7 @@
                 <div>价格</div>
                 <div>操作</div>
             </div>
-            <!--需要数据渲染的部分 -->
+    <!--需要数据渲染的部分 -->
             <div class="tbody">
                 <div class="wu">
                     <div>
@@ -92,12 +92,12 @@
                         </div>
                     </div>
                     <div>￥47.80</div>
-                    <div>数量</div>
+                    <div>${inID[i]}</div>
                     <div>￥47.80</div>
                     <div>删除</div>
                 </div> -->
             </div>
-            <!--需要数据渲染的部分结束 -->
+    <!--需要数据渲染的部分结束 -->
             <div class="tfooter">
                 <div class="btn">
                     <input type="button" id="sub_button" class="closing" value="提交采购计划&nbsp;>">
@@ -216,4 +216,47 @@
         </div>
     </div>
 </body>
+<script src="../outside/jquery.js"></script>
+<script>
+// 购物车
+$.ajax({
+    url:"http://localhost/CmcMalll/outside/goods.json",
+    dataType:"json",
+    success:function(data){
+        add(data);
+    console.log(data)
+    },
+})
+function add(data){  
+    var str="";
+    // 这里获取到asd里面的数据
+    var key = localStorage.getItem("inID") ? JSON.parse(localStorage.getItem("inID")) : []; 
+    for(var i=0;i<key.length;i++){
+        for(var j=0;j<data.length;j++){
+            if(key[i].id == data[j].id){
+    
+                str += `
+                        <div class="g_index">
+                            <div><input type="checkbox"></div>
+                            <div class="img">
+                                <img src="${data[j].img}" alt="">
+                                <div class="img_p">
+                                    <p>${data[j].name}</p>
+                                    <p>包装规格：2.5mg*30片</p>
+                                    <p>生产厂家：天津和治药业有限公司</p>
+                                    <p>批准文号：国药准字H20056713</p>
+                                </div>
+                            </div>
+                            <div>￥47.80</div>
+                            <div>${key[i].num}</div>
+                            <div>￥47.80</div>
+                            <div>删除</div>
+                        </div>
+                    `
+                }
+            }
+        }
+    $(".tbody").html(str)
+}
+</script>
 </html>
