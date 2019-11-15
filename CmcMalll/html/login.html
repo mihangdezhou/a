@@ -16,45 +16,42 @@
         <div class="inner">
             <div class="banner"></div>
             <div class="login">
-<!-- ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
-<form id="loginForm" method="POST" action="/login.jhtml" >
-    <h2 class="title">登录</h2>
-    <p class="errortext" name="error"></p>
-    <ul class="login_form">
-        <li>
-            <input class="input_user" type="text" placeholder="用户名/手机号" value=""/>
-        </li>
-        <li>
-            <input class="input_pwd hid-ms-reveal" type="password" name="password" placeholder="密码"/>
-        </li>
-        <li>
-            <input class="input_checkbox"type="checkbox" />
-            <label >自动登录</label>
-            <a href="" class="forgot_pwd">忘记密码?</a>
-        </li>
-        
-        <li>
-            <input name="captcha" id="m_captcha" type="text" class="input_yzm" maxlength="6" placeholder="验证码" />
-            <span class="img" name="img">
-                <img src=""/>
-            </span>
-            <a class="yz_link">换张图片?</a>
-        </li>
-        
-        <li>
-            <input class="button" type="button" id="loginBtn" value="登录"  />
-        </li>
-    </ul>
-    <p class="text">
-        还不是会员？<a href="../html/post.html">免费注册</a>
-    </p>
-</form>
-
-<!-- ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
+<!-- —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— -->
+                <form id="loginForm" method="POST" action="/login.jhtml" >
+                    <h2 class="title">登录</h2>
+                    <p class="errortext" name="error">登录失败</p>
+                    <ul class="login_form">
+                        <li>
+                            <input class="input_user" type="text" placeholder="手机号" value=""/>
+                        </li>
+                        <li>
+                            <input class="input_pwd hid-ms-reveal" type="password" name="password" placeholder="密码"/>
+                        </li>
+                        <li>
+                            <input class="input_checkbox"type="checkbox" />
+                            <label >自动登录</label>
+                            <a href="" class="forgot_pwd">忘记密码?</a>
+                        </li>
+                        <li>
+                            <input name="captcha" id="m_captcha" type="text" class="input_yzm" maxlength="6" placeholder="验证码" />
+                            <span class="img">
+                                <img src="../login.images/kaptcha.jpg"/>
+                            </span>
+                            <a class="yz_link">换张图片?</a>
+                        </li>
+                        <li>
+                            <input class="button" type="button" id="loginBtn" value="登录"  />
+                        </li>
+                    </ul>
+                    <p class="text">
+                        还不是会员？<a href="../html/post.html">免费注册</a>
+                    </p>
+                </form>
+<!-- ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— -->
             </div>
         </div>
     </div>
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ————————————————————————————————————footer部分———————————————————————————————————————————————————————— -->
     <div class="footer">
         <div class="margin">
             <div class="txt">
@@ -79,9 +76,9 @@
                     投诉举报电话：12331&nbsp;|&nbsp;客户服务邮箱：<a href="">service01@cmcmall.com.cn</a>
                 </p>
             </div>
-
         </div>
     </div>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ————————————————————————————————footer部分———————————————————————————————————————————————————————— -->
 </body>
+<script></script>
 </html>

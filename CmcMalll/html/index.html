@@ -524,7 +524,7 @@
                         </p>
                     </div>
                 </div>
-                <!-- 结束/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                <!-- 结束/—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— -->
                 <!-- 公告部分开始 -->
                 <div class="txt-box">
                     <div class="hd">
@@ -554,7 +554,7 @@
         </div>
     </div>
     <!-- banner部位结束 -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- —————————————————————————————————————————————————— -->
     <div class="index-week">
         <div class="margin">
             <div class="hd">
@@ -676,7 +676,7 @@
             </div>
         </div>
     </div>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- —————————————————————————————————————————————————————————————————————— -->
     <div class="index-brand">
         <div class="margin">
             <div class="hd">
@@ -710,7 +710,7 @@
             </div>
         </div>
     </div>
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ———————————————————————————————————————————————————————————————————————— -->
     <!-- 小banner部分 -->
     <div class="index-banner" style="margin-bottom:30px;">
         <div class="margin">
@@ -949,13 +949,22 @@
         <div class="margin">
             <div class="txt">
                 <p>
-                    <a href="">关于我们</a>&emsp;|&emsp;<a href="">法律声明</a>&emsp;|&emsp;<a href="">服务条款</a>&emsp;|&emsp;<a href="">帮助中心</a>&emsp;|&emsp;<a href="/helper/index.jhtml?titleId=-1">政府监管</a>&emsp;|&emsp;<a href="javascript:void(0);" id="cooperation">友情链接</a>
+                    <a href="">关于我们</a>&emsp;|&emsp;
+                    <a href="">法律声明</a>&emsp;|&emsp;
+                    <a href="">服务条款</a>&emsp;|&emsp;
+                    <a href="">帮助中心</a>&emsp;|&emsp;
+                    <a href="">政府监管</a>&emsp;|&emsp;
+                    <a href="">友情链接</a>
                 </p>
-                <p><a href="" style="color:#9f9f9f;">互联网药品交易服务资格证： 国A20150008</a> | <a href="" style="color:#9f9f9f;">互联网药品信息服务资格证书号：（苏）-经营性-2015-0003</a> | <a href="/business.jhtml" style="color:#9f9f9f;">营业执照</a></p>
                 <p>
-                    <a href="" target="_blank" style="color:#9f9f9f;text-decoration:none;">苏ICP备15033129号-1&nbsp;|&nbsp;</a>
-                    <a href="" target="_blank" style="color:#9f9f9f;text-decoration:none;">经营许可证编号：合字B2-20160001&nbsp;|&nbsp;</a>
-                    Copyright &copy; 2015-2018  泰州中国医药城华药电子商务股份有限公司  版权所有</p>
+                    <a href="">互联网药品交易服务资格证： 国A20150008</a> | 
+                    <a href="">互联网药品信息服务资格证书号：（苏）-经营性-2015-0003</a> | 
+                    <a href="">营业执照</a></p>
+                <p>
+                    <a href="">苏ICP备15033129号-1&nbsp;|&nbsp;</a>
+                    <a href="">经营许可证编号：合字B2-20160001&nbsp;|&nbsp;</a>
+                    Copyright &copy; 2015-2018  泰州中国医药城华药电子商务股份有限公司  版权所有
+                </p>
                 <p>
                     投诉举报电话：12331&nbsp;|&nbsp;客户服务邮箱：<a href="">service01@cmcmall.com.cn</a>
                 </p>
@@ -985,7 +994,7 @@
         delayTime:3000,     //可选的，图片播放间隔时间
         moveTime:1        //可选的，图片移动的时间
     })
-    // ~~~~~~~~~~~~~~~~~~~~~~~广告栏目~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ——————————————————广告栏目——————————————————
     setInterval(function(){
         $(".move").css({left:"+=1"})
         if($(".move")[0].offsetLeft >= 1666){
@@ -1003,12 +1012,11 @@
     //广告栏目结束 
 // 楼层效果
     $(".floor_ul").children("li").click(function(){
-        console.log(0)
+        // console.log(0)
         var i = $(this).index();
         var now = $(".floor").eq(i);
-        
         var t = now.offset().top;
-        console.log(t)
+        // console.log(t)
         $("html").animate({
             scrollTop:t
         })
@@ -1016,8 +1024,6 @@
 // 楼层效果结束
 
 // 页面渲染
-
-
 $.ajax({
     url:"http://localhost/CmcMalll/outside/index.json",
     dataType:"json",
@@ -1046,18 +1052,19 @@ function add(data){
 }
 // 页面渲染结束
 // 向localstorage里面存id及id属性值
+// 事件委托到页面上的父元素
 $(".item-list").on("click",".pic",function(){
-
+    // 拿到父元素上的id
     var index = $(this).parent().attr("mihang");
-    console.log( $(this).parent().attr("mihang"))
+    // console.log( $(this).parent().attr("mihang"))
     var asd = localStorage.getItem("asd")? JSON.parse(localStorage.getItem("asd")) : [];
     if(asd.length<1){
-            asd.push({
-                id:index
-            })
-        }else{
-            asd[0].id=index
-        }
+        asd.push({
+            id:index
+        })
+    }else{
+        asd[0].id=index
+    }
     localStorage.setItem("asd",JSON.stringify(asd))
 })
     // console.log(1)

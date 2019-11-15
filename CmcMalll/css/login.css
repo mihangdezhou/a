@@ -126,7 +126,6 @@ ol {
 
 .main .inner .login .login_form li {
 	float: left;
-	*float: none;
 	padding: 0 0 15px;
 	width: 100%;
 }
@@ -139,8 +138,7 @@ ol {
 	line-height: 35px;
 	border: 1px solid #339967;
 	border-radius: 3px;
-	background: url(../images/icon_user.png) 14px center no-repeat;
-	_background: url(../images/icon_user.gif) 14px center no-repeat;
+	background: url(../login.images/icon_user.png) 14px center no-repeat;
 	font-size: 14px;
 	/*color:#999;*/
 }
@@ -153,8 +151,7 @@ ol {
 	line-height: 35px;
 	border: 1px solid #339967;
 	border-radius: 3px;
-	background: url(../images/icon_password.png) 14px center no-repeat;
-	_background: url(../images/icon_password.gif) 14px center no-repeat;
+	background: url(../login.images/icon_password.png) 14px center no-repeat;
 	font-size: 14px;
 	color: #999;
 }
@@ -178,8 +175,7 @@ ol {
 	line-height: 35px;
 	border: 1px solid #339967;
 	border-radius: 3px;
-	background: url(../images/icon_code.png) 14px center no-repeat;
-	_background: url(../images/icon_code.gif) 14px center no-repeat;
+	background: url(../login.images/icon_code.png) 14px center no-repeat;
 	font-size: 14px;
 	color: #999;
 }
