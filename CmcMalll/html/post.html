@@ -19,13 +19,13 @@
 <!-- ````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````` -->
 <form id="loginForm" method="POST" action="/login.jhtml" >
     <h2 class="title" style="margin-top:12px;">注册</h2>
-    <p class="errortext" name="error">登录失败</p>
+    <p class="errortext" name="error"></p>
     <ul class="login_form">
         <li>
             <input class="input_user" type="text" placeholder="手机号" value=""/>
         </li>
         <li>
-            <input class="input_pwd hid-ms-reveal" type="password" name="password" placeholder="密码"/>
+            <input class="input_pwd hid-ms-reveal" type="password" name="password" placeholder="密码(6个数字或字母)"/>
         </li>
         <li>
             <input class="input_pwd hid-ms-reveal" type="password" name="password" placeholder="重复密码"/>
@@ -33,7 +33,7 @@
         
         <li>
             <input name="captcha" id="m_captcha" type="text" class="input_yzm" maxlength="6" placeholder="验证码" />
-            <span class="img">
+            <span class="img" name="img">
                 <img src="../login.images/kaptcha.jpg"/>
             </span>
             <a class="yz_link">换张图片?</a>
@@ -82,4 +82,89 @@
     </div>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~footer部分~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 </body>
+<script src="../outside/jquery.js"></script>
+<script>
+    // 登陆验证
+    var input = $(".login_form input");
+    var error = $(".errortext");
+    var iphone = false;
+    var mM = false;
+    var m_M = false;
+    var yZm = false;
+    input[0].onblur = function(){
+        // console.log(1)
+        if(this.value.length <= 0){
+            error[0].innerHTML = "资料不能为空";
+        }else{
+            var yes = /^1[0-9]\d{9}$/;
+            var tel = yes.test(this.value);
+            // console.log(!tel)
+            if(tel){
+                error[0].innerHTML = "";
+                iphone = true;
+                
+            }else{
+                error[0].innerHTML = "手机号出错";
+                iphone = false;
+            }
+            console.log(iphone)
+        }
+    }
+    input[1].onblur = function(){
+        // console.log(1)
+        if(this.value.length <= 0){
+            error[0].innerHTML = "密码不能为空";
+        }else{
+            var yes = /^[0-9a-zA-Z_]{6,15}$/;
+            var ma = yes.test(this.value);
+            if(ma){
+                mM = true;
+            }else{
+                error[0].innerHTML = "密码格式错不"
+                mM = false;
+            }
+        }
+    }
+    input[2].onblur = function(){
+        // console.log(1)
+        if(this.value.length <= 0){
+            error[0].innerHTML = "请再次输入密码";
+        }else{
+            if(this.value == input[1].value){
+                error[0].innerHTML = "";
+                m_M = true
+            }else{
+                error[0].innerHTML = "两次密码不一致";
+                m_M = false;
+            }
+        }
+    }
+    input[3].onblur = function(){
+        // console.log(1)
+        if(this.value.length <= 0){
+            error[0].innerHTML = "请输入验证码";
+        }else{
+            if(this.value == "5d47x"){
+                error[0].innerHTML = "";
+                yZm = true;
+            }else{
+                error[0].innerHTML = "请输入正确的验证码";
+                yZm = false;
+            }
+        }
+    }
+    // console.log(iphone)
+    // console.log(mM)
+    // console.log(m_M)
+    // console.log(yZm)
+    // 验证结束开始存数据
+    $("#loginBtn").on("click",function(){
+        if(iphone==true && mM==true && m_M==true &&yZm==true){
+            
+        }
+    })
+
+
+    // 
+</script>
 </html>
