@@ -246,7 +246,7 @@ function add(data){
                             </div>
                             <div>￥${data[j].price}</div>
                             <div>${key[i].num}</div>
-                            <div>￥47.80</div>
+                            <div class="total">47.80</div>
                             <div class="del">删除</div>
                         </div>
                     `
@@ -254,6 +254,7 @@ function add(data){
                 }
             }
         }
+    // 渲染页面
     $(".tbody").html(str)
 }
 $(".tbody").on("click",".del",function(){
@@ -269,11 +270,14 @@ $(".tbody").on("click",".del",function(){
     for(var i=0;i<delId.length;i++){
         // console.log(delId[i].id)    //页面上所有的inID里的id
         if(delId[i].id == deleID){
-            console.log(666)  //确认是否比较上了
+            // console.log(666)  //确认是否比较上了
+            // 删除和点击相同的id
             delId.splice(i,1)
         }
     }
+    // 把删除后的数组在存回localstorage里面
     localStorage.setItem("inID",JSON.stringify(delId))
 })
+
 </script>
 </html>

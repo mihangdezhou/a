@@ -308,6 +308,7 @@ $.ajax({
     url:"http://localhost/CmcMalll/outside/goods.json",
     success:function(data){
         add(data)
+        aaa()
     },
 })
 function add(data){
@@ -318,7 +319,6 @@ function add(data){
                 // console.log(data[i].id)
                 str += `
                         <div class="change_left">
-
                             <div class="img">
                                 <div class="small_pic">
                                     <span class="mark"></span>
@@ -329,8 +329,6 @@ function add(data){
                                     <img src="${data[i].img}"/>
                                 </div>
                             </div>
-
-                            
                             <div class="advert">
                                 <img src="../images/index_tendering.jpg" alt="">
                             </div>
@@ -514,63 +512,62 @@ function add(data){
 //         }
 
 //         // 从主页拿到的数据结束
-</script>
-<script>
-    window.onload = function(){
-        //1. 获取大盒子
-        let oBigBox = DQ('.img');
-        //2. 获取小图所在的盒子
-        let oSmallPic = DQ('.small_pic');
-        //3. 获取遮罩
-        let oMark = DQ('.mark');
-        //4. 获取滑块
-        let oFloat = DQ('.float_layer');
-        //5. 大图所在盒子
-        let oBigPic = DQ('.big_pic');
-        //6. 大图
-        let oBigImg = DQ('.big_pic img');
+function aaa(){
+    //1. 获取大盒子
+    let oBigBox = DQ('.img');
+    //2. 获取小图所在的盒子
+    let oSmallPic = DQ('.small_pic');
+    //3. 获取遮罩
+    let oMark = DQ('.mark');
+    //4. 获取滑块
+    let oFloat = DQ('.float_layer');
+    //5. 大图所在盒子
+    let oBigPic = DQ('.big_pic');
+    //6. 大图
+    let oBigImg = DQ('.big_pic img');
+    
+    //7.给遮罩添加移入事件
+    // console.log(oMark);//这里span标签有的时候后加载不出来所以有的时候后放大境就无法使用，需要写一个if来解决 “这个问题解决了”
+    oMark.onmouseenter = function(){
+        oFloat.style.display = 'block';
+        oBigPic.style.display = 'block';
+    }
+    //8.给遮罩添加移出事件
+    oMark.onmouseleave = function(){
+        oFloat.style.display = 'none';
+        oBigPic.style.display = 'none';
+    }
+    //9. 给遮罩添加移动事件
+    oMark.onmousemove = function(evt){
+        let e = evt || window.event;
+        let left = e.pageX - oBigBox.offsetLeft - oSmallPic.offsetLeft - oFloat.offsetWidth / 2;
+        let top = e.pageY - oBigBox.offsetTop - oSmallPic.offsetTop - oFloat.offsetHeight / 2;
         
-        //7.给遮罩添加移入事件
-        console.log(oMark);//这里span标签有的时候后加载不出来所以有的时候后放大境就无法使用，需要写一个if来解决
-        oMark.onmouseenter = function(){
-            oFloat.style.display = 'block';
-            oBigPic.style.display = 'block';
+        //边界
+        if(left <= 0){
+            left = 0;
+        }else if(left >= this.offsetWidth - oFloat.offsetWidth){
+            left = this.offsetWidth - oFloat.offsetWidth;
         }
-        //8.给遮罩添加移出事件
-        oMark.onmouseleave = function(){
-            oFloat.style.display = 'none';
-            oBigPic.style.display = 'none';
+        if(top <= 0){
+            top = 0;
+        }else if(top >= this.offsetHeight - oFloat.offsetHeight){
+            top = this.offsetHeight - oFloat.offsetHeight;
         }
-        //9. 给遮罩添加移动事件
-        oMark.onmousemove = function(evt){
-            let e = evt || window.event;
-            let left = e.pageX - oBigBox.offsetLeft - oSmallPic.offsetLeft - oFloat.offsetWidth / 2;
-            let top = e.pageY - oBigBox.offsetTop - oSmallPic.offsetTop - oFloat.offsetHeight / 2;
-            
-            //边界
-            if(left <= 0){
-                left = 0;
-            }else if(left >= this.offsetWidth - oFloat.offsetWidth){
-                left = this.offsetWidth - oFloat.offsetWidth;
-            }
-            if(top <= 0){
-                top = 0;
-            }else if(top >= this.offsetHeight - oFloat.offsetHeight){
-                top = this.offsetHeight - oFloat.offsetHeight;
-            }
-            oFloat.style.left = left + 'px';
-            oFloat.style.top = top + 'px';
-            
-            //求滑块在小图上的移动比例
-            let pX = left / (this.offsetWidth - oFloat.offsetWidth);
-            let pY = top / (this.offsetHeight - oFloat.offsetHeight);
-            //设置大图移动
-            oBigImg.style.left = - pX * (oBigImg.offsetWidth - oBigPic.offsetWidth) + 'px';
-            oBigImg.style.top = - pY * (oBigImg.offsetHeight - oBigPic.offsetHeight) + 'px';
-        }
+        oFloat.style.left = left + 'px';
+        oFloat.style.top = top + 'px';
+        
+        //求滑块在小图上的移动比例
+        let pX = left / (this.offsetWidth - oFloat.offsetWidth);
+        let pY = top / (this.offsetHeight - oFloat.offsetHeight);
+        //设置大图移动
+        oBigImg.style.left = - pX * (oBigImg.offsetWidth - oBigPic.offsetWidth) + 'px';
+        oBigImg.style.top = - pY * (oBigImg.offsetHeight - oBigPic.offsetHeight) + 'px';
     }
-    function DQ(select){
-        return document.querySelector(select);
-    }
+}
+function DQ(select){
+    return document.querySelector(select);
+}
 </script>
+
 </html>
