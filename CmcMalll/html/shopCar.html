@@ -48,7 +48,7 @@
         <!--导航开始-->
         <div class="navgation">
             <ul class="nav_inner">
-                <li class="btn_category"><a href="../html/index.html"><em>全部分类</em></a></li>
+                <li class="btn_category"><a href="../html/goods.html"><em>全部分类</em></a></li>
                 <li class="main_menu">
                     <a href="../html/index.html">首页</a>
                     <a href="">促销专区</a>
@@ -72,14 +72,16 @@
                 <div>价格</div>
                 <div>操作</div>
             </div>
-    <!--需要数据渲染的部分 -->
-            <div class="tbody">
+            <!-- 偷出来的tbody部分 -->
                 <div class="wu">
                     <div>
-                        <a href="list.html">继续购物</a>
+                        <a href="goods.html">继续购物</a>
                         <span>购物车暂时为空</span>
                     </div>
                 </div>
+            <!-- 偷出来的tbody部分结束 -->
+    <!--需要数据渲染的部分 -->
+            <div class="tbody">
                 <!-- <div class="g_index">
                     <div><input type="checkbox"></div>
                     <div class="img">
@@ -218,19 +220,20 @@ $.ajax({
     dataType:"json",
     success:function(data){
         add(data);
-    console.log(data)
+    // console.log(data)
     },
 })
 function add(data){  
     var str="";
     // 这里获取到asd里面的数据
     var key = localStorage.getItem("inID") ? JSON.parse(localStorage.getItem("inID")) : []; 
+    // 拿到商品数量
     for(var i=0;i<key.length;i++){
         for(var j=0;j<data.length;j++){
             if(key[i].id == data[j].id){
     
                 str += `
-                        <div class="g_index">
+                        <div class="g_index" rem="${data[j].id}">
                             <div><input type="checkbox"></div>
                             <div class="img">
                                 <img src="${data[j].img}" alt="">
@@ -241,16 +244,36 @@ function add(data){
                                     <p>批准文号：国药准字H20056713</p>
                                 </div>
                             </div>
-                            <div>￥47.80</div>
+                            <div>￥${data[j].price}</div>
                             <div>${key[i].num}</div>
                             <div>￥47.80</div>
-                            <div>删除</div>
+                            <div class="del">删除</div>
                         </div>
                     `
+            // console.log(key[i].num)
                 }
             }
         }
     $(".tbody").html(str)
 }
+$(".tbody").on("click",".del",function(){
+    // 删除样式
+    this.parentNode.remove();
+    //获取到购物车页面localstorage里inId的信息
+    var delId = localStorage.getItem("inID")? JSON.parse(localStorage.getItem("inID")) : [];
+    // 拿到父元素上在inID里的id
+    var deleID = $(this).parent().attr("rem")
+    console.log(deleID)
+    console.log(this)
+    console.log(delId)
+    for(var i=0;i<delId.length;i++){
+        // console.log(delId[i].id)    //页面上所有的inID里的id
+        if(delId[i].id == deleID){
+            console.log(666)  //确认是否比较上了
+            delId.splice(i,1)
+        }
+    }
+    localStorage.setItem("inID",JSON.stringify(delId))
+})
 </script>
 </html>

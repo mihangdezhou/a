@@ -33,6 +33,7 @@ body{
     border-top-color: #396;
     border-top: solid 4px #396;
     background-color: #fff;
+    position: relative;
 }
 
 .main .shopping_car .thead {
@@ -96,12 +97,16 @@ body{
 
 .main .shopping_car .tbody {
     border-top: 1px solid #ccc;
+    min-height: 100px;
 }
 
 .main .shopping_car .tbody .g_index {
     overflow: hidden;
     height: 100px;
     border-bottom: 1px solid #ccc;
+    z-index:2;
+    position: relative;
+    background: #fff;
 }
 
 .main .shopping_car .tbody .g_index div {
@@ -118,15 +123,21 @@ body{
 }
 
 .main .shopping_car .tbody .g_index div:nth-of-type(3) {
-    margin: 40px 30px;
+    width: 63px;
+    text-align:left;
+    margin: 40px 0 40px 40px;
 }
 
 .main .shopping_car .tbody .g_index div:nth-of-type(4) {
-    margin: 40px 125px;
+    width: 27px;
+    text-align: center;
+    margin: 40px 115px;
 }
 
 .main .shopping_car .tbody .g_index div:nth-of-type(5) {
-    margin: 40px 30px;
+    text-align:left;
+    width: 60px;
+    margin: 40px 20px;
 }
 
 .main .shopping_car .tbody .g_index div:nth-of-type(6) {
@@ -162,29 +173,32 @@ body{
     margin-bottom: 15px;
 }
 
-.main .shopping_car .tbody .wu {
+.main .shopping_car .wu {
+    position: absolute;
+    top:60px;right : 0;
     line-height: 65px;
     height: 65px;
+    z-index:1;
 }
 
-.main .shopping_car .tbody .wu div {
+.main .shopping_car .wu div {
     padding: 0;
     font-size: 25px;
 }
 
-.main .shopping_car .tbody .wu div span {
+.main .shopping_car .wu div span {
     float: right;
     margin-right: 500px;
 }
 
-.main .shopping_car .tbody .wu div a {
+.main .shopping_car .wu div a {
     display: block;
     padding: 0 70px;
     float: right;
-    background-color: #339967;
-    color: #fff;
+    color: #339967;
+    background-color: #fff;font-size:28px;
 }
 
-.main .shopping_car .tbody .wu div a:hover {
-    background-color: #008242;
+.main .shopping_car .wu div a:hover {
+    color: #008242;
 }
