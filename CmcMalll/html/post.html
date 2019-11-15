@@ -123,6 +123,7 @@
                 error[0].innerHTML = "密码格式错不"
                 mM = false;
             }
+            console.log(mM)
         }
     }
     input[2].onblur = function(){
@@ -137,6 +138,7 @@
                 error[0].innerHTML = "两次密码不一致";
                 m_M = false;
             }
+            console.log(m_M)
         }
     }
     input[3].onblur = function(){
@@ -151,6 +153,7 @@
                 error[0].innerHTML = "请输入正确的验证码";
                 yZm = false;
             }
+            console.log(yZm)
         }
     }
     // console.log(iphone)
@@ -160,10 +163,15 @@
     // 验证结束开始存数据
     $("#loginBtn").on("click",function(){
         if(iphone==true && mM==true && m_M==true &&yZm==true){
-            
+            console.log("储存数据")
+            alert("注册成功")
+            var user = {
+                 SJ: input[0].value,
+                 MM: input[1].value
+            }
+            localStorage.setItem("user",JSON.stringify(user))
         }
     })
-
 
     // 
 </script>
